@@ -25,7 +25,7 @@ jobs:
         run: mvn install
 
       - name: Upload Build Artifacts (WAR)
-        uses: astertom/nexus-upload-artifact@v1ßß
+        uses: astertom/nexus-upload-artifact@v1
         with:
           name: vprofile-app  
           path: target/*.war
