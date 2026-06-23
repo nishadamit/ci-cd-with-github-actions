@@ -24,17 +24,15 @@ jobs:
       - name: Maven Build
         run: mvn install
 
-      - name: Upload Build Artifacts (WAR)
-        uses: astertom/nexus-upload-artifact@v1
-        with:
-          name: vprofile-app  
-          path: target/*.war
+      # - name: Upload Build Artifacts (WAR)
+      #   uses: astertom/nexus-upload-artifact@v1
+      #   with:
+      #     name: vprofile-app  
+      #     path: target/*.war
 
       - name: Notify if Build Fails
         if: failure()
         run: echo "Build failed! Please check the logs for details."
-        
-
   
   Testing:
     runs-on: ubuntu-latest
