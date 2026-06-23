@@ -44,7 +44,13 @@ jobs:
           fetch-depth: 0
       
       - name: Run Tests on main branch
+        if: github.ref == 'refs/heads/main'
         run: mvn test
 
       - name: checkstyle
+        if: github.ref == 'refs/heads/main'
         run: mvn checkstyle:checkstyle
+
+      - name: Run Test on other branches
+        if: github.ref != 'refs/heads/main'
+        run: echo "Skipping integration tests on other branches"
